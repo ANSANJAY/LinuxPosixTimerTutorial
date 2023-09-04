@@ -79,3 +79,5 @@ timer_create(CLOCK_REALTIME, &evp, &timer);
 
 ### Q7: What does the `-lrt` flag do during the compilation?
 **A7:** The `-lrt` flag is used for linking against the real-time library, which is necessary for working with timers in Linux.
+
+1[]()
