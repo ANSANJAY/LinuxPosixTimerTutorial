@@ -35,12 +35,6 @@ Suppose your application wants to send a network packet 10 seconds from the curr
 
 ---
 
-## Upcoming Lectures 📆
-
-We will discuss how to use each of these APIs in detail in the upcoming videos.
-
----
-
 ## Interview Questions & Answers 🤔💡
 
 ### Q1: What are the four basic APIs provided by Texas Standards for timer manipulation?
@@ -65,4 +59,3 @@ Feel free to dive deeper into each section for better understanding and make sur
 
 --- 
 
-I hope this format is helpful for your interview revision!
