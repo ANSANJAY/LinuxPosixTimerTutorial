@@ -50,8 +50,130 @@
 - **Expiration Time**: Controlled by `itimerspec` data structure.
   
 - **Starting the Timer**: Use `timer_set_time()` API.
+- 
+# `timer_create` Function in Linux
+
+## Function Prototype
+
+```c
+int timer_create(clockid_t clockid, struct sigevent *evp, timer_t *timerid);
+```
+
+## Description
+
+Creates a timer.
+
+### Parameters
+
+- **`clockid`**: Specifies the clock used for measuring time. A typical value is `CLOCK_REALTIME`, which uses wall clock time.
+- **`timerid`**: Returns a unique timer ID as an integer.
+- **`evp`**: Specifies how the process should be notified when the timer expires.
+
+## `struct sigevent`
+
+The `sigevent` structure has an abridged definition as follows:
+
+```c
+struct sigevent {
+    int sigev_notify;  // Notification method
+    int sigev_signo;   // Timer expiration signal
+    union sigval sigev_value;  // Value passed to signal handler or thread function
+    void (*sigev_notify_function) (union sigval);  // Thread notification function
+    ...
+};
+```
+
+### Notification Methods
+
+Various notification methods are possible:
+
+- **`SIGEV_SIGNAL`**: Send a signal
+- **`SIGEV_THREAD`**: Call a function in a new thread
+
+### `sigev_value`
+
+Specifies the data to be sent to the signal handler or passed to the thread function. The value can be an integer or a pointer.
+
+```c
+union sigval {
+    int sival_int;  // Integer value for accompanying data
+    void *sival_ptr;  // Pointer value for accompanying data
+};
+```
+
+## Example Usage
+
+```c
+clockid_t clockid = CLOCK_REALTIME;
+timer_t timerid;
+struct sigevent evp;
+
+evp.sigev_notify = SIGEV_THREAD;
+evp.sigev_notify_function = &timer_callback;
+// Additional configurations...
+
+int ret = timer_create(clockid, &evp, &timerid);
+```
+
+By defining the `sigevent` structure and using `timer_create`, you can create a timer that will notify you through various methods when it expires.
+
+
 
 ---
+
+# `struct itimerspec` in Linux
+
+## Name
+
+`timespec` - Interval for a timer with nanosecond precision
+
+## Library
+
+Standard C Library (libc)
+
+## Synopsis
+
+```c
+#include <time.h>
+
+struct itimerspec {
+    struct timespec it_interval;  /* Interval for periodic timer */
+    struct timespec it_value;     /* Initial expiration */
+};
+```
+
+## Description
+
+The `itimerspec` structure describes the initial expiration and the interval of a timer in seconds and nanoseconds.
+
+### Members
+
+- **`it_interval`**: Specifies the interval for the periodic timer.
+- **`it_value`**: Specifies the time for the initial expiration of the timer.
+
+## Standards
+
+Linux.
+
+## Notes
+
+This type is also provided by the `<sys/timerfd.h>` header.
+
+## Example Usage
+
+```c
+#include <time.h>
+
+struct itimerspec timerSpec;
+
+timerSpec.it_interval.tv_sec = 1;  // 1 second
+timerSpec.it_interval.tv_nsec = 0; // 0 nanoseconds
+
+timerSpec.it_value.tv_sec = 2;     // Initial expiration after 2 seconds
+timerSpec.it_value.tv_nsec = 0;    // 0 nanoseconds
+```
+
+By defining the `itimerspec` structure, you can control both the interval and initial expiration time of a timer with nanosecond-level precision.
 
 ## Interview Questions 🤔
 
