@@ -1,11 +1,11 @@
-# Taimur Timer Implementation Notes 📝
+#  Timer Implementation Notes 📝
 
 ## Overview 🌐
-This guide is an elaborate walkthrough of the video tutorial on implementing Taimur, a Linux timer utility. Taimur is created to run as a one-shot timer and can also be configured to run periodically. This guide includes interview questions to help you prepare for discussions about the topic.
+This guide is an elaborate walkthrough of the video tutorial on implementing Timer, a Linux timer utility. Timer is created to run as a one-shot timer and can also be configured to run periodically. This guide includes interview questions to help you prepare for discussions about the topic.
 
 ## Source Code Location 📍
 - The source code is located in the **guitar directory** in the GitHub repo.
-- The file to look at is `Taimur_example_demo1.c`.
+- The file to look at is `Timer_example_demo1.c`.
 
 ## Required Header Files 📂
 - `signal.h`
