@@ -55,6 +55,12 @@ timer_create(CLOCK_REALTIME, &evp, &timer);
 ## Compilation and Execution 💻
 - Compile using `-lrt` flag for linking against the real-time library.
 
+
+## Sample output 
+
+![](https://github.com/ANSANJAY/LinuxPosixTimerTutorial/blob/main/Screenshot%20from%202023-09-04%2018-36-33.png)
+
+
 ---
 
 # Interview Questions and Answers 🎙️
@@ -79,5 +85,47 @@ timer_create(CLOCK_REALTIME, &evp, &timer);
 
 ### Q7: What does the `-lrt` flag do during the compilation?
 **A7:** The `-lrt` flag is used for linking against the real-time library, which is necessary for working with timers in Linux.
+
+### Interview Questions and Answers
+
+#### Question 1: What is the purpose of the `itimerspec` structure in this program?
+
+##### Answer:
+
+The `itimerspec` structure is used to specify the timing details of the timer. It consists of two `timespec` structures: `it_value` and `it_interval`. 
+- `it_value` defines the initial expiration of the timer in seconds (`tv_sec`) and nanoseconds (`tv_nsec`).
+- `it_interval` specifies the periodic interval for the timer, again in seconds and nanoseconds. 
+
+When the timer is set using `timer_settime()`, these values are used to control when the timer will initially go off (`it_value`) and how often it will repeat (`it_interval`).
+
+#### Question 2: How is the timer actually started in the program?
+
+##### Answer:
+
+The timer is started using the `timer_settime()` function. This function is called with four arguments:
+- The timer object (`timer`)
+- A flag (set to 0 in this example)
+- A pointer to an `itimerspec` structure (`&ts`) that specifies the initial expiration and interval
+- A NULL pointer for the old setting (since it's not needed here)
+
+The `timer_settime()` function effectively starts the timer based on the values of `it_value` and `it_interval` inside the passed `itimerspec` structure (`ts`).
+
+#### Question 3: Explain the `timer_callback` function and its parameter.
+
+##### Answer:
+
+The `timer_callback` function is called when the timer expires. It takes one argument of type `union sigval` named `arg`. This is specified through the `sigev_value` field of the `sigevent` structure. 
+- Inside this function, the current system time is printed by calling `print_current_system_time()`.
+- The `pair_t` structure (`pair`) is retrieved from `arg.sival_ptr` and its contents are printed. 
+
+This function demonstrates what to do when the timer expires and how to use the data that was passed to it.
+
+#### Question 4: What is the role of `pause()` function in the `main()` function?
+
+##### Answer:
+
+The `pause()` function is used to suspend the program's execution until a signal is received. In the context of this program, it keeps the program from exiting so that the timer can fire and the `timer_callback` can be invoked. Without it, the program might terminate before the timer had a chance to expire.
+
+Would you like more questions?
 
 
