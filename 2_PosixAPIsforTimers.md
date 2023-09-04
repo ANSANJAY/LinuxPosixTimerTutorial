@@ -3,13 +3,13 @@
 
 ## Introduction 🌟
 
-Welcome to the world of timers on Unix-compliant platforms using **Texas Standards APIs**! This guide will explain these APIs that allow you to manipulate timers. It'll also clarify important terminology in timer management.
+Welcome to the world of timers on Unix-compliant platforms using **POSIX Standards APIs**! This guide will explain these APIs that allow you to manipulate timers. It'll also clarify important terminology in timer management.
 
 ---
 
-## Basics of Texas Standards APIs 🛠️
+## Basics of POSIX Standards APIs 🛠️
 
-Texas Standards offers four basic APIs for manipulating timers:
+POSIX Standards offers four basic APIs for manipulating timers:
 
 1. **Create a Timer**: Initializes a timer data structure but does not start the timer.
 2. **Start/Stop a Timer**: Begins or halts the timer depending on the argument passed.
@@ -37,7 +37,7 @@ Suppose your application wants to send a network packet 10 seconds from the curr
 
 ## Interview Questions & Answers 🤔💡
 
-### Q1: What are the four basic APIs provided by Texas Standards for timer manipulation?
+### Q1: What are the four basic APIs provided by POSIX Standards for timer manipulation?
 
 **A1**: The four basic APIs are for creating a timer, starting/stopping a timer, checking the time remaining before a timer fires, and deleting a timer.
 
