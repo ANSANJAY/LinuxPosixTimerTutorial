@@ -61,6 +61,6 @@ Good luck with your journey into the world of POSIX timers! 🍀
 
 ## Sample output 
 
-![](./Screenshot from 2023-09-04 18-36-33.png)
+![](https://github.com/ANSANJAY/LinuxPosixTimerTutorial/blob/main/Screenshot%20from%202023-09-04%2018-36-33.png)
 
 --- 
