@@ -59,8 +59,4 @@ Feel free to clone, star, or fork this repository. Contributions and pull reques
 
 Good luck with your journey into the world of POSIX timers! 🍀
 
-## Sample output 
-
-![](https://github.com/ANSANJAY/LinuxPosixTimerTutorial/blob/main/Screenshot%20from%202023-09-04%2018-36-33.png)
-
 --- 
