@@ -59,4 +59,8 @@ Feel free to clone, star, or fork this repository. Contributions and pull reques
 
 Good luck with your journey into the world of POSIX timers! 🍀
 
+## Sample output 
+
+![](./Screenshot from 2023-09-04 18-36-33.png)
+
 --- 
