@@ -57,11 +57,7 @@
 ### Q4: What is a practical application of Exponential Backoff timers?
 
 **A4**: A practical application is in the TCP protocol, which uses Exponential Backoff timers to implement its backoff algorithm. This helps in avoiding network congestion by varying the intervals between packet retransmissions.
+------
 
-### Q5: What will you be implementing as part of this course?
-
-**A5**: As part of this course, we will use Linux and its built-in APIs to create all three types of timers. The end goal is to build a custom timer library that gives the developer full control over timer functionalities.
-
----
 
 Best of luck with your interview preparation! 🍀
