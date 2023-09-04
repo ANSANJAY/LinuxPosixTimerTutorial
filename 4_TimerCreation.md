@@ -4,7 +4,7 @@
 - The Operating System implements the concept of timers in the context of a separate code flow, which could be either a separate thread or a separate process.
   
 ## How Timers Work 👩‍🔬
-- **Application Scenario**: You have an application (`Application B`) with a function (`fule`) that performs some work.
+- **Application Scenario**: You have an application (`Application B`) with a function (`foo`) that performs some work.
   
 - **Creating a Timer**: At some point, the application starts a timer using a hypothetical API (`new_time_launch`).
   
