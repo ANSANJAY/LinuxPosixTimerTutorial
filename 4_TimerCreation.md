@@ -175,6 +175,55 @@ timerSpec.it_value.tv_nsec = 0;    // 0 nanoseconds
 
 By defining the `itimerspec` structure, you can control both the interval and initial expiration time of a timer with nanosecond-level precision.
 
+# `struct timespec` in Linux
+
+## Name
+
+`timespec` - Time in seconds and nanoseconds
+
+## Library
+
+Standard C Library (libc)
+
+## Synopsis
+
+```c
+#include <time.h>
+
+struct timespec {
+    time_t     tv_sec;  /* Seconds */
+    /* ... */  tv_nsec; /* Nanoseconds [0, 999'999'999] */
+};
+```
+
+## Description
+
+The `timespec` structure describes times in seconds and nanoseconds.
+
+### Members
+
+- **`tv_sec`**: Specifies the time in seconds.
+- **`tv_nsec`**: Specifies the time in nanoseconds, ranging from `[0, 999'999'999]`.
+
+`tv_nsec` is of an implementation-defined signed type capable of holding the specified range. Under glibc, this is usually of type `long`, and `long long` on X32. It can be safely down-cast to any concrete 32-bit integer type for processing.
+
+## Versions
+
+Prior to C23 standard, `tv_nsec` was of type `long`.
+
+## Example Usage
+
+```c
+#include <time.h>
+
+struct timespec timeSpec;
+
+timeSpec.tv_sec = 5;           // 5 seconds
+timeSpec.tv_nsec = 500000000;  // 500 million nanoseconds
+```
+
+By using the `timespec` structure, you can specify time durations with a granularity of nanoseconds.
+
 ## Interview Questions 🤔
 
 ### Q1: Can you explain how the concept of timers is implemented in operating systems?
